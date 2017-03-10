@@ -1,0 +1,33 @@
+# Maurice Woods' Custom BASH .profile
+# Copy this into the home (~) directory under the name ".profile"
+# Once copied, issue the bash command: "source ~/.profile" to enable it
+
+# ~/.profile: executed by the command interpreter for login shells.
+# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
+# exists.
+# see /usr/share/doc/bash/examples/startup-files for examples.
+# the files are located in the bash-doc package.
+
+# the default umask is set in /etc/profile; for setting the umask
+# for ssh logins, install and configure the libpam-umask package.
+#umask 022
+
+# if running bash
+if [ -n "$BASH_VERSION" ]; then
+    # include .bashrc if it exists
+    if [ -f "$HOME/.bashrc" ]; then
+	. "$HOME/.bashrc"
+    fi
+fi
+
+# set PATH so it includes user's private bin directories
+PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+
+# Custom aliases by Mo
+alias ecen4652="cd ~/Documents/Git/CUBoulderMasters/2017spring/CommsLab"
+alias open="gnome-open"
+alias commlab="cd $ECEN4652 && git pull && atom && gnome-terminal --tab --tab -e 'jupyter notebook' --tab -e 'gnuradio-companion' && exit"
+
+# Custom path variables by Mo
+export ECEN4652=~/Documents/Git/CUBoulderMasters/2017spring/CommsLab
+
